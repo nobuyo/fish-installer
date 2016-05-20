@@ -74,8 +74,8 @@ function install_gcc {
   cd "$WORK_SPACE"
   download "$package_gcc"
   echo "installing gcc-5.3.0..."
-  {
-    echo "=========INSTALLING GCC=========" &&
+  # {
+    # echo "=========INSTALLING GCC=========" &&
     md5sum "$tar_package" &&
     tar zxf "$tar_package" &&
     cd "$package" &&
@@ -86,8 +86,8 @@ function install_gcc {
     make &&
     make install
     result=$?
-  } > "$WORK_SPACE/tmp.$$" 2>&1
-  cat "$WORK_SPACE/tmp.$$" >> "$LOGFILE"
+  # } > "$WORK_SPACE/tmp.$$" 2>&1
+  # cat "$WORK_SPACE/tmp.$$" >> "$LOGFILE"
   show_result "$result" "gcc"
 }
 
@@ -98,8 +98,8 @@ function install_fish {
   cd "$WORK_SPACE"
   download "$package_fish"
   echo "installing fish-2.2.0..."
-  {
-    echo "=========INSTALLING FISH=========" &&
+  # {
+    # echo "=========INSTALLING FISH=========" &&
     md5sum "$tar_package" &&
     tar zxf "$tar_package" &&
     cd "$package" &&
@@ -107,8 +107,8 @@ function install_fish {
     make &&
     make install
     result=$?
-  } > "$WORK_SPACE/tmp.$$" 2>&1
-  cat "$WORK_SPACE/tmp.$$" >> "$LOGFILE"
+  # } > "$WORK_SPACE/tmp.$$" 2>&1
+  # cat "$WORK_SPACE/tmp.$$" >> "$LOGFILE"
   show_result "$result" "fish"
 }
 
@@ -118,7 +118,7 @@ function install {
   mkdir -p "$INSTALL_DIR"
   mkdir -p "$WORK_SPACE"
   export CPPFLAGS="-I$INSTALL_DIR/include" LDFLAGS="-L$INSTALL_DIR/lib" LD_LIBRARY_PATH="$INSTALL_DIR/lib"
-  echo "fish-installer $(date)" > "$LOGFILE"
+  # echo "fish-installer $(date)" > "$LOGFILE"
   # check_available "g++" || 
   install_gcc
   install_fish

@@ -79,7 +79,10 @@ function install_gcc {
     md5sum "$tar_package" &&
     tar zxf "$tar_package" &&
     cd "$package" &&
-    ./configure --prefix="$INSTALL_DIR" &&
+    ./contrib/download_prerequisites
+    mkdir build &&
+    cd build &&
+    ../configure --prefix="$INSTALL_DIR" --disable-multilib --disable-bootstrap&&
     make &&
     make install
     result=$?

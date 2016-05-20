@@ -118,8 +118,8 @@ function install {
   mkdir -p "$INSTALL_DIR"
   mkdir -p "$WORK_SPACE"
   export CPPFLAGS="-I$INSTALL_DIR/include" LDFLAGS="-L$INSTALL_DIR/lib" LD_LIBRARY_PATH="$INSTALL_DIR/lib"
-  echo "picnic unpack $(date)" > "$LOGFILE"
-  check_available "g++" || 
+  echo "fish-installer $(date)" > "$LOGFILE"
+  # check_available "g++" || 
   install_gcc
   install_fish
 }

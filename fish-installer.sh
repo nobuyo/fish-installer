@@ -76,6 +76,7 @@ function install_gcc {
   echo "installing gcc-5.3.0..."
   {
     echo "=========INSTALLING GCC=========" &&
+    md5sum "$tar_package" &&
     tar zxf "$tar_package" &&
     cd "$package" &&
     ./configure --prefix="$INSTALL_DIR" &&
@@ -96,6 +97,7 @@ function install_fish {
   echo "installing fish-2.2.0..."
   {
     echo "=========INSTALLING FISH=========" &&
+    md5sum "$tar_package" &&
     tar zxf "$tar_package" &&
     cd "$package" &&
     ./configure --prefix="$INSTALL_DIR" &&
@@ -119,6 +121,5 @@ function install {
   install_fish
 }
 
-check_os
 install
 

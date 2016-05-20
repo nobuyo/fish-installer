@@ -7,7 +7,7 @@
 INSTALL_DIR=${INSTALL_DIR:-"$HOME/local"}
 WORK_SPACE=${WORK_SPACE:-"/tmp/fish-installer"}
 LOGFILE="$WORK_SPACE/install.log"
-FISH_SOURCE="https://github.com/fish-shell/fish-shell/releases/download/latest/fish-2.2.0.tar.gz"
+FISH_SOURCE="https://github.com/fish-shell/fish-shell/releases/download/2.2.0/fish-2.2.0.tar.gz"
 
 function warn {
   # color:yellow
@@ -47,7 +47,7 @@ function check_os {
 function install {
   local tar_package="$(basename $FISH_SOURCE)"
   local package="${tar_package%.tar.gz}"
-
+  mkdir "$WORK_SPACE"
   cd "$WORK_SPACE"
   echo "prepareing file..."
   download "$FISH_SOURCE" | tar zxf "$tar_package" && 

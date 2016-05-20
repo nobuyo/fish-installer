@@ -50,13 +50,15 @@ function install {
   mkdir "$WORK_SPACE"
   cd "$WORK_SPACE"
   echo "prepareing file..."
-  download "$FISH_SOURCE" &&
-  tar zxf "$tar_package" && 
+  download "$FISH_SOURCE" > "$LOGFILE" &&
+  tar zxf "$tar_package" >> "$LOGFILE" && 
   success "download file $tar_package" &&
   cd $package &&
+  {
   ./configure --prefix="$INSTALL_DIR" &&
   make &&
   make install
+  } >> "$LOGFILE"
 }
 
 check_os

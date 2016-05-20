@@ -93,9 +93,9 @@ function install_fish {
   local package="${tar_package%.tar.gz}"
   cd "$WORK_SPACE"
   download "$package_fish"
-  echo "installing gcc-5.3.0..."
+  echo "installing fish-2.2.0..."
   {
-    echo "=========INSTALLING GCC=========" &&
+    echo "=========INSTALLING FISH=========" &&
     tar zxf "$tar_package" &&
     cd "$package" &&
     ./configure --prefix="$INSTALL_DIR" &&
@@ -104,7 +104,7 @@ function install_fish {
     result=$?
   } > "$WORK_SPACE/tmp.$$" 2>&1
   cat "$WORK_SPACE/tmp.$$" >> "$LOGFILE"
-  show_result "$result" "gcc"
+  show_result "$result" "fish"
 }
 
 
@@ -112,7 +112,6 @@ function install {
   check_os
   mkdir -p "$INSTALL_DIR"
   mkdir -p "$WORK_SPACE"
-  package_download
   export CPPFLAGS="-I$INSTALL_DIR/include" LDFLAGS="-L$INSTALL_DIR/lib" LD_LIBRARY_PATH="$INSTALL_DIR/lib"
   echo "picnic unpack $(date)" > "$LOGFILE"
   check_available "g++" || 

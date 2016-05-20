@@ -1,0 +1,6 @@
+test:
+  override:
+    - ./fish-installer.sh
+  post:
+    - export PATH=~/local/bin:$PATH
+    - which fish

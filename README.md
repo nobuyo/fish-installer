@@ -1,9 +1,8 @@
-# fish-installer
-the fishing rod
+# fish-installer - the fishing rod
 
 fish-shell install script without sudo/root
 
-### Usage
+## Usage
 On your terminal:
 
 ~~~
@@ -12,5 +11,5 @@ chmod +x fish-installer.sh
 ./fish-installer.sh
 ~~~
 
-### Lisence
+## Lisence
 MIT

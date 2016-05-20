@@ -26,9 +26,9 @@ function success {
 
 function download {
   if which curl &>/dev/null; then
-    curl -L $@
+    curl -L -O $@
   elif which wget &>/dev/null; then
-    wget -O - $@
+    wget $@
   fi
 }
 
@@ -50,9 +50,9 @@ function install {
   mkdir "$WORK_SPACE"
   cd "$WORK_SPACE"
   echo "prepareing file..."
-  download "$FISH_SOURCE" | tar zxf "$tar_package" && 
-  success "download file $tar_package"
-
+  download "$FISH_SOURCE" &&
+  tar zxf "$tar_package" && 
+  success "download file $tar_package" &&
   cd $package &&
   ./configure --prefix="$INSTALL_DIR" &&
   make &&

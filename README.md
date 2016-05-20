@@ -11,5 +11,5 @@ $ chmod +x fish-installer.sh
 $ ./fish-installer.sh
 ~~~
 
-## Lisence
+## License
 MIT

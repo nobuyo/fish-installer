@@ -67,6 +67,10 @@ function check_os {
   esac
 }
 
+function clean {
+  rm -rf /tmp/fish-installer/*
+}
+
 function install_gcc {
   local result=1
   local tar_package="$(basename $package_gcc)"
@@ -124,5 +128,6 @@ function install {
   install_fish
 }
 
+# clean
 install
 
